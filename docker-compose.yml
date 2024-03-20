@@ -11,34 +11,34 @@ services:
       MYSQL_ROOT_PASSWORD: "1234"
       MYSQL_DATABASE: "library"
     networks:
-      - myNetwork
+      - library-network
 
-  nodefront:
+  library-front:
     build: ./library-front
-    container_name: nodefront
+    container_name: library-front
     ports:
       - "3000:3000"
     volumes:
       - ./library-front:/usr/app
     networks:
-      - myNetwork
+      - library-network
     depends_on:
       - mysql
 
-  nodeapi:
+  library-api:
     build: ./library-api
-    container_name: nodeapi
+    container_name: library-api
     ports:
       - "8000:8000"
     volumes:
       - ./library-api:/usr/app
     networks:
-      - myNetwork
+      - library-network
     depends_on:
       - mysql
 
 networks:
-  myNetwork:
+  library-network:
 
 volumes:
   db:
