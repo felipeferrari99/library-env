@@ -17,7 +17,7 @@ services:
     build: ./library-front
     container_name: library-front
     ports:
-      - "3000:3000"
+      - "8080:8080"
     volumes:
       - ./library-front:/usr/app
     networks:
@@ -29,7 +29,7 @@ services:
     build: ./library-api
     container_name: library-api
     ports:
-      - "8000:8000"
+      - "3000:3000"
     volumes:
       - ./library-api:/usr/app
     networks:
